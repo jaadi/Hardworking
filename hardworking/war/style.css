@@ -1,0 +1,386 @@
+body {
+	background-color: #C6E2FF;
+}
+
+#whodidwhat {
+	min-height: 1000px;
+}
+
+.loginLabel {
+	font-size: large;
+	color: #F0F8FF;
+}
+
+.signingPanel {
+	background-color: #4682B4;
+	padding: 20px;
+	margin: 50px auto;
+}
+
+.signInLink {
+	font-size: large;
+	color: #F0F8FF;
+}
+
+.panelTitle {
+	width: 300px;
+	color: #F0F8FF;
+	font-size: 16px;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0 10px 0;
+	background-color: #5A7487;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.TableTitle {
+	color: #F0F8FF;
+	font-size: 16px;
+	text-align: center;
+	padding: 5px;
+	margin: 10px 0 10px 0;
+	background-color: #5A7487;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.viewWrapper {
+	width: 100%;
+	min-height: 1500px;
+}
+
+/*header style*/
+/*/////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////*/
+.headerWrapper {
+	width: 100%;
+}
+
+.appTitleLabel {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 10px 0;
+	text-align: center;
+	color: #5A7487;
+}
+
+.viewTitleLabel {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 5px 0px 5px;
+	text-align: center;
+	color: #5A7487;
+}
+
+.menuesWrapper {
+	margin: auto;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.viewsMenuePanel {
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
+.languagesMenuePanel {
+	margin-right: 5px;
+	float: right;
+}
+
+.viewsButton {
+	border-radius: 10px;
+	border: 1px solid #666;
+	cursor: hand;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-top: 2px;
+	padding: 1px 10px;
+	min-width: 150px;
+	height: 30px;
+	text-align: center;
+	float: left;
+	line-height: 2;
+	font-size: 1em;
+}
+
+.viewsButton-up-hovering {
+	background-color: #ffd;
+	padding: 0px 9px;
+	color: #5A7487;
+	border-top: 2px solid #888;
+	border-left: 2px solid #888;
+	border-right: 2px solid #888;
+	border-bottom: 2px solid #888;
+}
+
+.viewsButton-down,.viewsButton-down-hovering {
+	padding: 0px 9px;
+	border-top: 2px solid #ccc;
+	border-left: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+}
+
+.languagesButton {
+	border-radius: 10px;
+	border: 1px solid #666;
+	cursor: hand;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-top: 2px;
+	padding: 1px 5px;
+	text-align: center;
+	line-height: 1.5;
+	font-size: 1em;
+	width: 60px;
+}
+
+.languagesButton-up-hovering {
+	background-color: #ffd;
+}
+
+/*
+.languagesButton-down,.viewsButton-down-hovering {
+	background-color: #ffd;
+	border-top: 2px solid #ccc;
+	border-left: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+}*/
+.signoutLink {
+	text-decoration: none;
+	color: #5A7487;
+	font-size: 1.1em;
+}
+
+.signOutLinkWrapper {
+	height: 30px;
+	text-align: left;
+	margin: 3px 0 0 5px;
+}
+
+/*EditTaskView style*/
+/*/////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////*/
+.dataInputTable td {
+	padding: 5px;
+}
+
+.dataInputTable {
+	margin: 10px;
+	padding: 3px;
+	color: #5A7487;
+}
+
+.todoInputTable {
+	/*height: 400px;*/
+}
+
+.suggestionBox {
+	background-color: #daecff;
+	width: 250px;
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.gwt-SuggestBoxPopup .item {
+	 font-size: 90%;
+}
+
+.gwt-DateBox {
+	background-color: #daecff;
+	padding: 5px 4px;
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+	font-size: 100%;
+}
+
+.dateBoxFormatError {
+	background: #ffcccc;
+}
+
+.durationSelectBox {
+	background-color: #daecff;
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+	width: 80px;
+}
+
+.textArea {
+	border-width: 0;
+	border-radius: 10px 10px 10px 10px;
+	background-color: #daecff;
+	width: 100%;
+	resize: none;
+}
+
+.textareaPanel {
+	padding: 3px;
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.taskinputbuttons {
+	margin-right: 5px;
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.tablesButtons {
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.infoLabel {
+	text-align: center;
+	font-size: larger;
+	padding: 3px;
+	/*background-color: #5A7487;*/
+}
+
+.normal {
+	background-color: #36648B;
+}
+
+.waiting {
+	background-color: #FFA500;
+}
+
+.warning {
+	background-color: #EE0000;
+	color: #F5F5F5;
+}
+
+.succes {
+	background-color: #458B00;
+	color: #F5F5F5;
+}
+
+.captionPanel {
+	border: 1px solid #C0C0C0;
+	border-radius: 10px 10px 10px 10px;
+}
+
+/*tasks tables style*/
+/*/////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////*/
+.dataDisplayPanel {
+	margin: 10px;
+	width: 100%;
+}
+
+.tasksTable {
+	background-color: #daecff;
+	border: 1px solid #C0C0C0;
+	padding: 2px;
+	width: 900px;
+	border-radius: 10px;
+	color: #5A7487;
+	text-align: center;
+}
+
+.todoTablewrapper {
+	margin-left : 200px;
+	color: #5A7487;
+}
+
+.tasksTable td {
+	border: 1px solid #C0C0C0;
+	border-radius: 10px;
+}
+
+.taskcolumn {
+	width: 20%;
+	text-align: left;
+}
+
+.durationColumn {
+	width: 10%;
+}
+
+.doerColumn {
+	width: 15%;
+}
+
+.dateColumn {
+	width: 15%;
+}
+
+.smallColumn {
+	width: 10%;
+}
+
+.tasksScrollPanel {
+	/*height: 400px;*/
+	margin-bottom: 10px;
+}
+
+.tablesHeader {
+	/*background-color: #5A7487;*/ /*color: #F5FFFA;*/
+	text-align: center;
+	border-radius: 10px 0 0 0;
+	font-weight: bolder;
+}
+
+.commentPopUpLabel {	
+	min-width: 200px;
+	max-width:300px;
+	padding: 3px;
+	background-color: #C6E2FF;
+}
+
+/*ChartsView */
+/*/////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////*/
+.disclPanel {
+	width: 100%;
+	margin-left: 20px;
+}
+
+.chartTable td {
+	border: 1px solid #C0C0C0;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.chartTable {
+	color: #5A7487;
+	background-color: #DAECFF;
+	border-radius: 10px;
+	border: 1px solid #C0C0C0;
+}
+
+.doersAndColorsTable {
+	margin-right: 250px;
+}
+
+.colorLabel {
+	min-width: 100px;
+}
+/*
+.entirePeriodTable {
+	width: 300px;
+	margin: auto;
+}
+*/
+.monthsStackPanel {
+	width: 100%;
+}
+
+.gwt-StackPanel .gwt-StackPanelItem {
+	background-color: #4682B4;
+	border: 2px solid #F0F8FF;
+}
+
+.gwt-StackPanel {
+	background-color: #4682B4;
+}
+
+.gwt-StackPanel .gwt-StackPanelItem-selected {
+	background-color: #DAECFF;
+}
+
+.gwt-StackPanel .gwt-StackPanelContent {
+	background-color: #DAECFF;
+}
