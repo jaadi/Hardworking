@@ -12,13 +12,14 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import de.gwt.hardworking.client.util.Translations;
 
 public class GraphicPanel extends VerticalPanel {
-	
+
 	private String month;
 	private String year;
 	private HashMap<String, Integer> doersMap;
-	private HashMap<String, String> associationsMap;	
+	private HashMap<String, String> associationsMap;
 
-	public GraphicPanel() {	}
+	public GraphicPanel() {
+	}
 
 	public GraphicPanel(String year, String month,
 			HashMap<String, Integer> doersMap,
@@ -26,10 +27,10 @@ public class GraphicPanel extends VerticalPanel {
 		this.year = year;
 		this.month = month;
 		this.doersMap = doersMap;
-		this.associationsMap = associationsMap;	
-		
+		this.associationsMap = associationsMap;
+
 		addGraphicTitle(this.year, this.month);
-		
+
 		Canvas canvas = Canvas.createIfSupported();
 		draw(canvas);
 		add(canvas);
@@ -99,8 +100,8 @@ public class GraphicPanel extends VerticalPanel {
 
 			String doer = entry.getKey();
 			Integer value = entry.getValue();
-			String color = associationsMap.get(doer);			
-			
+			String color = associationsMap.get(doer);
+
 			double percentage = getPercentage(doer);
 			if (canvas != null) {
 				Context2d context = canvas.getContext2d();
@@ -116,8 +117,8 @@ public class GraphicPanel extends VerticalPanel {
 					context.setFillStyle(CssColor.make("#4682B4"));
 					context.beginPath();
 
-					context.fillText(Translations.getMessages().onePerson(), textXPosition,
-							textYPosition + 50);
+					context.fillText(Translations.getMessages().onePerson(),
+							textXPosition, textYPosition + 50);
 
 				}
 

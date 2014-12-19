@@ -11,9 +11,6 @@ import javax.jdo.annotations.PrimaryKey;
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Task implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@PrimaryKey
@@ -39,7 +36,6 @@ public class Task implements Serializable {
 
 	public Task(String name, String duration, String doer,
 			String date, String comment, boolean confirmed, String entryDate) {
-
 		
 		this.name = name;
 		this.duration = duration;

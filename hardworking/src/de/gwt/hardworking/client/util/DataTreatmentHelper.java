@@ -282,54 +282,47 @@ public class DataTreatmentHelper {
 		return notDetailedMap;
 	}
 
-	public static String getEntirePeriod(ArrayList<Task> tasksList, String localeName) {
+	public static String getEntirePeriod(ArrayList<Task> tasksList,
+			String localeName) {
 
 		DateTimeFormat fmt = DateTimeFormat.getFormat("dd.MM.yyyy");
 		Date max = null;
-		Date min = null;		
+		Date min = null;
 
 		for (Task task : tasksList) {
 
 			Date date = fmt.parse(task.getDate());
-			
+
 			if (max == null) {
-				max = date;				
+				max = date;
 			}
-			
+
 			if (min == null) {
-				min = date;				
+				min = date;
 			}
 
 			if (date.compareTo(max) >= 0) {
-
-				//System.out.println("date   :" + task.getDate() + " ---  max: "
-				//		+ max + " ----  compare " + date.compareTo(max));
-				max = date;
-				//System.out.println("max was changed");
-
-			}else if(date.compareTo(min) <= 0){
 				
-				//System.out.println("date   :" + task.getDate() + " ---  min: "
-				//		+ min + " ----  compare " + date.compareTo(min));
+				max = date;				
+
+			} else if (date.compareTo(min) <= 0) {
+			
 				min = date;
-				//System.out.println("min was changed");
-				
-			}
+			}			
 
-			// System.out.println(task.getDate());
+		}		
 
-		}
-
-//		System.out.println("max is   :" + max+"   and min is  :"+min);
-//		System.out.println(" english format  max is   :" + getEnglishDateFormat(fmt.format(max).toString())+"   and min is  :"+ getEnglishDateFormat(fmt.format(min).toString()));
-		
-		if(localeName.equals("default"))
-		return "from "+getEnglishDateFormat(fmt.format(min).toString())+" until "+getEnglishDateFormat(fmt.format(max).toString());
+		if (localeName.equals("default"))
+			return "from " + getEnglishDateFormat(fmt.format(min).toString())
+					+ " until "
+					+ getEnglishDateFormat(fmt.format(max).toString());
 		else
-		return "von "+fmt.format(min).toString()+" bis "+fmt.format(max).toString();
+			return "von " + fmt.format(min).toString() + " bis "
+					+ fmt.format(max).toString();
 	}
 
 	public static String getShortForm(String fullNickname) {
+		
 		String[] split = fullNickname.split("@");
 		return split[0];
 	}

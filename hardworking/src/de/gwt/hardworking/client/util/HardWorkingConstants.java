@@ -6,19 +6,19 @@ public interface HardWorkingConstants extends Constants {
 
 	@DefaultStringValue("sign in")
 	String signIn();
-	
+
 	@DefaultStringValue("Edit Tasks View")
 	String editOrConfirmView();
-	
+
 	@DefaultStringValue("Charts View")
 	String ChartsView();
-	
+
 	@DefaultStringValue("To-do View")
 	String todoView();
 
 	@DefaultStringValue("sign out")
 	String signOut();
-	
+
 	@DefaultStringValue("hrs")
 	String hours();
 
@@ -42,7 +42,7 @@ public interface HardWorkingConstants extends Constants {
 
 	@DefaultStringValue("confirm/delete")
 	String confirm();
-	
+
 	@DefaultStringValue("delete")
 	String delete();
 
@@ -72,39 +72,37 @@ public interface HardWorkingConstants extends Constants {
 
 	@DefaultStringValue("comparison_entirePeriod")
 	String comparison_entirePeriod();
-	
+
 	@DefaultStringValue("Please sign in to your Google account to access the Hardworking application. <br>"
-					+ "if you don't want to use your own account you can use this one: <br>" +
-					"user:     useitforatest@gmail.com <br>password: easypassword")
+			+ "if you don't want to use your own account you can use this one: <br>"
+			+ "user:     useitforatest@gmail.com <br>password: easypassword")
 	String loginLabel();
-	
+
 	@DefaultStringValue("Color")
 	String color();
-	
+
 	@DefaultStringValue("doers and the associated colors")
 	String doerscolor();
-	
+
 	@DefaultStringValue("To-do")
 	String toDosTable();
-	
+
 	@DefaultStringValue("deadLine")
 	String deadLine();
-	
+
 	@DefaultStringValue("defered")
 	String defered();
-	
+
 	@DefaultStringValue("defer")
 	String defer();
-	
+
 	@DefaultStringValue("i done it")
 	String done();
-	
+
 	@DefaultStringValue("created")
 	String created();
-	
+
 	@DefaultStringValue("user")
 	String user();
-	
-	
 
 }

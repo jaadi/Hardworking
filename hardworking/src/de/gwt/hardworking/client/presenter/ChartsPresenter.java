@@ -46,7 +46,6 @@ public class ChartsPresenter {
 						associationsMap = result;
 						retrievetaskListAndSetViewData();
 					}
-
 					@Override
 					public void onFailure(Throwable error) {
 						appController.handleError(error);
@@ -149,39 +148,6 @@ public class ChartsPresenter {
 
 		return data;
 	}
-
-	// private void createMonthsView(String year) {
-	//
-	// HashMap<String, HashMap<String, HashMap<String, Integer>>> detailedMap =
-	// DataTreatmentHelper
-	// .createDetailedMap(tasks);
-	// int column = 0;
-	// int row = graphicsTable.getRowCount();/* !! ist das nötig */
-	//
-	// HashMap<String, HashMap<String, Integer>> onJearMap = detailedMap
-	// .get(year);
-	//
-	// for (Map.Entry<String, HashMap<String, Integer>> entry : onJearMap
-	// .entrySet()) {
-	//
-	// String month = entry.getKey();
-	// HashMap<String, Integer> doersMap = entry.getValue();
-	//
-	// // reset index to allow only 4 cells in a row
-	// if (column == 4) {
-	// column = 0;
-	// row++;
-	// }
-	//
-	// graphicsTable.setWidget(row, column, new GraphicPanel(year, month,
-	// doersMap, associationsMap));
-	//
-	// graphicsTable.getFlexCellFormatter().setStyleName(row, column,
-	// "mini-table-cell");
-	// column++;
-	//
-	// }
-	// }
 
 	public Display getView() {
 		return view;

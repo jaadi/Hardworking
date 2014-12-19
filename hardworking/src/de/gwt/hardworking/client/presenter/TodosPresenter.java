@@ -42,10 +42,6 @@ public class TodosPresenter {
 	private ArrayList<Todo> todoList;
 	private MyPopup popUp;
 
-	/*
-	 * graphicsPanel.getElement().scrollIntoView();
-	 */
-
 	public interface Display {
 		HashMap<String, String> getInputData();
 
@@ -53,10 +49,10 @@ public class TodosPresenter {
 
 		Button getNewTodoButton();
 
-		Label  getTodoInputInfoLabel();
-		
+		Label getTodoInputInfoLabel();
+
 		Button getCancelTodoInputButton();
-		
+
 		Label getTodoEditInfoLabel();
 
 		void setData(ArrayList<HashMap<String, Object>> data);
@@ -72,7 +68,7 @@ public class TodosPresenter {
 		constants = Translations.getConstants();
 		messages = Translations.getMessages();
 		fetchTodos();
-		displayInfos(view.getTodoEditInfoLabel(),3);
+		displayInfos(view.getTodoEditInfoLabel(), 3);
 	}
 
 	public void bind() {
@@ -82,11 +78,11 @@ public class TodosPresenter {
 			public void onClick(ClickEvent event) {
 				HashMap<String, String> inputData = view.getInputData();
 				if (checkAndStore(inputData)) {
-					displayInfos(view.getTodoInputInfoLabel(),3);
+					displayInfos(view.getTodoInputInfoLabel(), 3);
 				}
 			}
 		});
-		
+
 		view.getCancelTodoInputButton().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
@@ -99,7 +95,7 @@ public class TodosPresenter {
 	private boolean checkAndStore(HashMap<String, String> inputData) {
 		String todoName = inputData.get("todoName");
 		if (todoName.equals("")) {
-			displayInfos(view.getTodoInputInfoLabel(),0);
+			displayInfos(view.getTodoInputInfoLabel(), 0);
 			return false;
 		} else {
 			if (!appController.getTasksPresenter().exist(todoName)) {
@@ -120,7 +116,7 @@ public class TodosPresenter {
 		Todo todo = new Todo(todoName, comment, now, deadLine, 0,
 				DataTreatmentHelper.getShortForm(getUserNickname()));
 		addTodo(todo);
-		// shouldBeStored = todo;
+
 		return true;
 	}
 
@@ -132,7 +128,7 @@ public class TodosPresenter {
 						view.resetInputForm();
 						todoList.add(result);
 						view.setData(createList(todoList));
-						displayInfos(view.getTodoInputInfoLabel(),2);
+						displayInfos(view.getTodoInputInfoLabel(), 2);
 					}
 
 					@Override
@@ -240,7 +236,7 @@ public class TodosPresenter {
 				@Override
 				public void onClick(ClickEvent event) {
 					if (dateBox.getValue() == null) {
-						displayInfos(view.getTodoEditInfoLabel(),6);
+						displayInfos(view.getTodoEditInfoLabel(), 6);
 						return;
 					} else {
 						deferButton.setEnabled(false);
@@ -289,7 +285,7 @@ public class TodosPresenter {
 					appController.displayView("editTask");
 					appController.getTasksPresenter().presentTodoAsTask(
 							getTodo(id));
-					
+
 					deleteTodo(id);
 				}
 			});
@@ -310,7 +306,6 @@ public class TodosPresenter {
 						deleteTodoButton.setEnabled(false);
 						Long id = Long.valueOf(deleteTodoButton.getTitle());
 						deleteTodo(id);
-
 					}
 				});
 
@@ -338,7 +333,6 @@ public class TodosPresenter {
 						upDateList(id, newDeadLine);
 						view.setData(createList(todoList));
 					}
-
 				});
 	}
 
@@ -354,7 +348,7 @@ public class TodosPresenter {
 					@Override
 					public void onSuccess(Void result) {
 						removeFromList(id);
-						displayInfos(view.getTodoEditInfoLabel(),5);
+						displayInfos(view.getTodoEditInfoLabel(), 5);
 						view.setData(createList(todoList));
 					}
 				});
@@ -391,7 +385,6 @@ public class TodosPresenter {
 				break;
 			}
 		}
-
 	}
 
 	private void showPopUp(String comment, Widget widget) {
@@ -401,13 +394,13 @@ public class TodosPresenter {
 		popUp.showRelativeTo(widget);
 	}
 
-	public void displayInfos(final Label infoLabel,int i) {	
-		
+	public void displayInfos(final Label infoLabel, int i) {
+
 		resetInfoLabel(infoLabel);
-		
+
 		switch (i) {
 		case 0:
-			
+
 			infoLabel.setText(messages.taskName());
 			infoLabel.addStyleName("warning");
 			break;
@@ -426,26 +419,26 @@ public class TodosPresenter {
 			};
 			timer.schedule(3000);
 			break;
-		case 3:			
+		case 3:
 			infoLabel.setText(messages.beingLoaded());
 			infoLabel.addStyleName("waiting");
 			break;
-		case 4:			
+		case 4:
 			infoLabel.setText(messages.beingDeleted());
 			infoLabel.addStyleName("waiting");
 			break;
-		case 5:			
+		case 5:
 			infoLabel.setText(messages.deleted());
 			infoLabel.addStyleName("succes");
 			Timer timer2 = new Timer() {
 				@Override
-				public void run() {					
+				public void run() {
 					resetInfoLabel(infoLabel);
 				}
 			};
 			timer2.schedule(2000);
 			break;
-		case 6:			
+		case 6:
 			infoLabel.setText(messages.taskDate());
 			infoLabel.addStyleName("warning");
 			break;

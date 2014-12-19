@@ -13,7 +13,7 @@ import de.gwt.hardworking.client.util.Translations;
 
 public class AppHeader extends VerticalPanel implements HeaderPresenter.Display {
 
-	private  Label viewTitleLabel;
+	private Label viewTitleLabel;
 	private final Button editTasksViewButton;
 	private final Button chartsViewButton;
 	private final Button todosViewButton;
@@ -23,7 +23,7 @@ public class AppHeader extends VerticalPanel implements HeaderPresenter.Display 
 	HardWorkingConstants constants;
 
 	public AppHeader() {
-		
+
 		constants = Translations.getConstants();
 
 		addStyleName("headerWrapper");
@@ -60,19 +60,19 @@ public class AppHeader extends VerticalPanel implements HeaderPresenter.Display 
 
 		VerticalPanel languagesMenuePanel = new VerticalPanel();
 		languagesMenuePanel.addStyleName("languagesMenuePanel");
-		
+
 		menuesWrapper.add(languagesMenuePanel);
 
 		germanButton = new Button("Deutsch");
-		germanButton.setStylePrimaryName("languagesButton");		
+		germanButton.setStylePrimaryName("languagesButton");
 		languagesMenuePanel.add(germanButton);
 
 		englishButton = new Button("English");
-		englishButton.setStylePrimaryName("languagesButton");		
+		englishButton.setStylePrimaryName("languagesButton");
 		languagesMenuePanel.add(englishButton);
 
 		signOutLink = new Anchor(constants.signOut());
-		signOutLink.addStyleName("signoutLink");		
+		signOutLink.addStyleName("signoutLink");
 		SimplePanel panel = new SimplePanel();
 		panel.addStyleName("signOutLinkWrapper");
 		panel.add(signOutLink);
@@ -112,7 +112,5 @@ public class AppHeader extends VerticalPanel implements HeaderPresenter.Display 
 	public Label getViewTitlelabel() {
 		return viewTitleLabel;
 	}
-
-	
 
 }

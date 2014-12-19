@@ -9,11 +9,11 @@ import de.gwt.hardworking.client.util.HardWorkingConstants;
 import de.gwt.hardworking.client.util.Translations;
 
 public class LoginView extends VerticalPanel implements LoginPresenter.Display {
-	
+
 	private Anchor signInLink;
 
 	public LoginView() {
-		
+
 		HardWorkingConstants constants = Translations.getConstants();
 
 		signInLink = new Anchor(constants.signIn());
@@ -25,7 +25,6 @@ public class LoginView extends VerticalPanel implements LoginPresenter.Display {
 		add(loginLabel);
 		add(signInLink);
 		addStyleName("signingPanel");
-
 	}
 
 	@Override

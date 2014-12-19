@@ -43,8 +43,7 @@ public class TaskServiceImpl extends RemoteServiceServlet implements
 
 			tx.begin();
 			stored = pm.makePersistent(task);
-			// ObjectState state = JDOHelper.getObjectState(storedTask);
-			// LOG.log(Level.INFO, state.name());
+			// ObjectState state = JDOHelper.getObjectState(storedTask);			
 			tx.commit();
 
 		} catch (Exception e) {

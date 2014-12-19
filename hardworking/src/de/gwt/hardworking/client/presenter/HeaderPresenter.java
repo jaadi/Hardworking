@@ -16,7 +16,7 @@ public class HeaderPresenter {
 
 	public interface Display {
 		Label getViewTitlelabel();
-		
+
 		Button getChartsViewButton();
 
 		Button getTodosViewButton();
@@ -56,22 +56,22 @@ public class HeaderPresenter {
 		view.getTodosViewButton().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				manageButtonsFunction("todos");				
+				manageButtonsFunction("todos");
 				appController.displayView("todos");
 			}
 		});
 
 		view.getEnglishButton().addClickHandler(new ClickHandler() {
 			@Override
-			public void onClick(ClickEvent event) {				
-				appController.setLanguage("english");				
+			public void onClick(ClickEvent event) {
+				appController.setLanguage("english");
 			}
 		});
 
 		view.getGermanButton().addClickHandler(new ClickHandler() {
 			@Override
-			public void onClick(ClickEvent event) {				
-				appController.setLanguage("german");							
+			public void onClick(ClickEvent event) {
+				appController.setLanguage("german");
 			}
 		});
 
@@ -84,22 +84,22 @@ public class HeaderPresenter {
 	}
 
 	public void manageButtonsFunction(String viewName) {
-		
+
 		switch (viewName) {
 		case "tasks":
 			view.getEditTasksViewButton().setEnabled(false);
 			view.getChartsViewButton().setEnabled(true);
-			view.getTodosViewButton().setEnabled(true);			
+			view.getTodosViewButton().setEnabled(true);
 			break;
 		case "charts":
 			view.getEditTasksViewButton().setEnabled(true);
 			view.getChartsViewButton().setEnabled(false);
-			view.getTodosViewButton().setEnabled(true);			
+			view.getTodosViewButton().setEnabled(true);
 			break;
 		case "todos":
 			view.getEditTasksViewButton().setEnabled(true);
 			view.getChartsViewButton().setEnabled(true);
-			view.getTodosViewButton().setEnabled(false);			
+			view.getTodosViewButton().setEnabled(false);
 		}
 	}
 

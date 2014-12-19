@@ -36,10 +36,9 @@ public class TaskItemServiceImpl extends RemoteServiceServlet implements TaskIte
 
 		ArrayList<TaskItem> taskItems = new ArrayList<>();
 		
-		try {
-			// Query q = pm.newQuery(StoredTaskItem.class, "user == u");
+		try {			
 			Query q = pm.newQuery(TaskItem.class);
-			// q.declareParameters("com.google.appengine.api.users.User u");
+			
 			q.setOrdering("itemText");
 			
 			@SuppressWarnings("unchecked")
@@ -82,8 +81,7 @@ public class TaskItemServiceImpl extends RemoteServiceServlet implements TaskIte
 	}
 
 	private void checkLoggedIn() throws NotLoggedInException {
-		if (getUser() == null) {
-			LOG.log(Level.SEVERE, "exception in checkloggedin() ");
+		if (getUser() == null) {			
 			throw new NotLoggedInException("Not logged in.");
 		}
 	}

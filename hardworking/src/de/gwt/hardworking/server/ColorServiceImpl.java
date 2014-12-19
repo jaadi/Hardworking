@@ -35,8 +35,7 @@ public class ColorServiceImpl extends RemoteServiceServlet implements
 			throws NotLoggedInException {
 
 		checkLoggedIn();
-		String nickName = getUser().getNickname().toLowerCase();
-		//LOG.log(Level.SEVERE, "nickname :" + nickName.trim());
+		String nickName = getUser().getNickname().toLowerCase();		
 		PersistenceManager pm = getPersistenceManager();
 		HashMap<String, String> associationsMap = new HashMap<String, String>();
 
@@ -60,15 +59,10 @@ public class ColorServiceImpl extends RemoteServiceServlet implements
 		}
 
 		if (associationsMap.keySet().contains(getSchortForm(nickName))) {
-
-//			LOG.log(Level.SEVERE, " contains associationsMap() size is "
-//					+ associationsMap.size() + nickName.trim());
+			
 			return associationsMap;
 
 		} else {
-			
-//			LOG.log(Level.SEVERE, "  not contains associationsMap() size is "
-//					+ associationsMap.size() + ""+nickName.trim());
 
 			for (String color : colors) {
 
@@ -93,9 +87,7 @@ public class ColorServiceImpl extends RemoteServiceServlet implements
 			}
 
 			return null;
-
 		}
-
 	}
 
 	private PersistenceManager getPersistenceManager() {

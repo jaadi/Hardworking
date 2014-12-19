@@ -66,7 +66,7 @@ public class TasksPresenter {
 		ListBox getDurationSelectionBox();
 
 		DateBox getDateBox();
-		
+
 		TextArea getTaskDescriptionArea();
 	}
 
@@ -81,16 +81,14 @@ public class TasksPresenter {
 		constants = Translations.getConstants();
 		messages = Translations.getMessages();
 
-		durations = new String[] { "", "15 min", "30 min", "45 min",
-				"75 min", "90 min", "105 min", "1 " + constants.hours(),
+		durations = new String[] { "", "15 min", "30 min", "45 min", "75 min",
+				"90 min", "105 min", "1 " + constants.hours(),
 				"2 " + constants.hours(), "3 " + constants.hours(),
 				"4 " + constants.hours(), "5 " + constants.hours(),
 				"6 " + constants.hours(), "7 " + constants.hours(),
 				"8 " + constants.hours() };
 		populateListBox(view.getDurationSelectionBox(), durations);
 		displayInfos(5);
-		
-		
 	}
 
 	public void bind() {
@@ -98,8 +96,8 @@ public class TasksPresenter {
 		view.getNewTaskButton().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				HashMap<String, String> inputData = view.getInputData();				
-				if (checkAndStore(inputData)) {					
+				HashMap<String, String> inputData = view.getInputData();
+				if (checkAndStore(inputData)) {
 					displayInfos(3);
 				}
 			}
@@ -176,7 +174,7 @@ public class TasksPresenter {
 		Task notConfirmedTask = new Task(taskName, taskDuration,
 				DataTreatmentHelper.getShortForm(getUserNickname()),
 				executiondate, comment, false, now);
-		addTask(notConfirmedTask);		
+		addTask(notConfirmedTask);
 		return true;
 	}
 
@@ -302,12 +300,12 @@ public class TasksPresenter {
 					deleteTaskButton.addClickHandler(new ClickHandler() {
 						@Override
 						public void onClick(ClickEvent event) {
-							
-								deleteTaskButton.setEnabled(false);
-								String idAsString = deleteTaskButton.getTitle();
-								long id = Long.valueOf(idAsString);
-								deleteTask(id);
-								displayInfos(6);						
+
+							deleteTaskButton.setEnabled(false);
+							String idAsString = deleteTaskButton.getTitle();
+							long id = Long.valueOf(idAsString);
+							deleteTask(id);
+							displayInfos(6);
 						}
 					});
 
@@ -324,7 +322,7 @@ public class TasksPresenter {
 						public void onClick(ClickEvent event) {
 							String idAsString = confirmTaskButton.getTitle();
 							long id = Long.valueOf(idAsString);
-							setTaskconfirmed(id);							
+							setTaskconfirmed(id);
 						}
 					});
 					confirmTaskButton.addStyleName("tablesButtons");
@@ -350,11 +348,11 @@ public class TasksPresenter {
 			}
 
 			public void onSuccess(ArrayList<TaskItem> taskItemsArr) {
-				
-				for(TaskItem taskItem:taskItemsArr){
-					taskItemList .add(taskItem.getItemText());
+
+				for (TaskItem taskItem : taskItemsArr) {
+					taskItemList.add(taskItem.getItemText());
 				}
-				
+
 				upDateSuggestBox();
 			}
 		};
@@ -385,7 +383,7 @@ public class TasksPresenter {
 				new AsyncCallback<Void>() {
 					@Override
 					public void onSuccess(Void ignore) {
-						removeFromList(id);						
+						removeFromList(id);
 						appController.setTasksList(tasksList);
 						view.setData(createMap(tasksList));
 						resetInfoLabel();
@@ -459,7 +457,7 @@ public class TasksPresenter {
 
 				});
 	}
-	
+
 	public void presentTodoAsTask(Todo todo) {
 		view.getSuggestionBox().setText(todo.getName());
 		view.getTaskDescriptionArea().setText(todo.getComment());
@@ -475,11 +473,11 @@ public class TasksPresenter {
 
 					public void onSuccess(TaskItem taskItem) {
 						taskItemList.add(taskItem.getItemText());
-						upDateSuggestBox();						
+						upDateSuggestBox();
 					}
 				});
 	}
-	
+
 	public void displayInfos(int i) {
 
 		switch (i) {
@@ -496,7 +494,7 @@ public class TasksPresenter {
 		case 2:
 			resetInfoLabel();
 			view.getInfoLabel().setText(messages.taskDuration());
-			view.getInfoLabel().addStyleName("warning");			
+			view.getInfoLabel().addStyleName("warning");
 			break;
 		case 3:
 			resetInfoLabel();
@@ -560,9 +558,5 @@ public class TasksPresenter {
 			}
 		}
 		return null;
-
 	}
-
-	
-
 }

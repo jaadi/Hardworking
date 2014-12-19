@@ -7,5 +7,6 @@ import de.gwt.hardworking.shared.LoginInfo;
 
 @RemoteServiceRelativePath("login")
 public interface LoginService extends RemoteService {
-  public LoginInfo login(String requestUri);
+
+	public LoginInfo login(String requestUri);
 }

@@ -139,15 +139,14 @@ public class EditTaskView extends HorizontalPanel implements
 		confirmedTasksTable.setText(1, 3, constants.date());
 		confirmedTasksTable.getColumnFormatter().addStyleName(3, "dateColumn");
 		confirmedTasksTable.setText(1, 4, constants.comment());
-		confirmedTasksTable.getColumnFormatter().addStyleName(4,
-				"smallColumn");
+		confirmedTasksTable.getColumnFormatter().addStyleName(4, "smallColumn");
 
 		confirmedTasksTable.getRowFormatter().addStyleName(1, "tablesHeader");
 
 	}
 
 	private void createInputForm() {
-		
+
 		dataInputTable = new FlexTable();
 		dataInputTable.setStylePrimaryName("dataInputTable");
 		FlexCellFormatter cellFormatter = dataInputTable.getFlexCellFormatter();
@@ -183,12 +182,12 @@ public class EditTaskView extends HorizontalPanel implements
 		// duration
 		dataInputTable.setHTML(3, 0, constants.duration());
 		durationSelectionBox = new ListBox();
-		durationSelectionBox.addStyleName("durationSelectBox");		
+		durationSelectionBox.addStyleName("durationSelectBox");
 		dataInputTable.setWidget(3, 1, durationSelectionBox);
 
 		// comment
 		taskDescriptionArea = new TextArea();
-		taskDescriptionArea.setStyleName("textArea");		
+		taskDescriptionArea.setStyleName("textArea");
 		CaptionPanel textareaPanel = new CaptionPanel(constants.comment());
 		textareaPanel.setContentWidget(taskDescriptionArea);
 		textareaPanel.addStyleName("textareaPanel");
@@ -206,7 +205,7 @@ public class EditTaskView extends HorizontalPanel implements
 				resetInputForm();
 			}
 		});
-		
+
 		HorizontalPanel hPanel = new HorizontalPanel();
 		hPanel.add(newTaskButton);
 		hPanel.add(cancelButton);
@@ -234,11 +233,10 @@ public class EditTaskView extends HorizontalPanel implements
 	}
 
 	@Override
-	public void setData(
-			HashMap<String, ArrayList<HashMap<String, Object>>> data) {
+	public void setData(HashMap<String, ArrayList<HashMap<String, Object>>> data) {
 
-		int rowCount1 = notConfirmedTasksTable.getRowCount();		
-		for (int i = 2; i < rowCount1; i++) {		
+		int rowCount1 = notConfirmedTasksTable.getRowCount();
+		for (int i = 2; i < rowCount1; i++) {
 			notConfirmedTasksTable.removeRow(2);
 		}
 
@@ -330,18 +328,17 @@ public class EditTaskView extends HorizontalPanel implements
 	}
 
 	@Override
-	public ListBox getDurationSelectionBox() {		
+	public ListBox getDurationSelectionBox() {
 		return durationSelectionBox;
 	}
 
 	@Override
-	public DateBox getDateBox() {		
+	public DateBox getDateBox() {
 		return dateBox;
 	}
 
 	@Override
 	public TextArea getTaskDescriptionArea() {
-		// TODO Auto-generated method stub
 		return taskDescriptionArea;
 	}
 

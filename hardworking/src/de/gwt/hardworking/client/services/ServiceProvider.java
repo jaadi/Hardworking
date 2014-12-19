@@ -39,7 +39,4 @@ public class ServiceProvider {
 			todoService = GWT.create(TodoService.class);
 		return todoService;
 	}
-	
-	
-
 }

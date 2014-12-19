@@ -24,7 +24,7 @@ public class ChartsView extends VerticalPanel implements
 		ChartsPresenter.Display {
 
 	private DisclosurePanel doersPanel;
-	private FlexTable doersAndColorsTable;	
+	private FlexTable doersAndColorsTable;
 	private FlexTable entirePeriodTable;
 	private DisclosurePanel yearsPanel;
 	private FlexTable yearsTable;
@@ -33,11 +33,12 @@ public class ChartsView extends VerticalPanel implements
 	private HardWorkingConstants constants;
 
 	public ChartsView() {
+
 		constants = Translations.getConstants();
 		addStyleName("content");
-		
+
 		createDoersPanel();
-		add(doersPanel);		
+		add(doersPanel);
 		createYearsPanel();
 		add(yearsPanel);
 		createMonthsPanel();
@@ -103,7 +104,7 @@ public class ChartsView extends VerticalPanel implements
 				.getFlexCellFormatter();
 		// table title
 		entirePeriodTable.setHTML(0, 0, constants.comparison_entirePeriod());
-		cellFormatter.setStylePrimaryName(0, 0, "TableTitle");		
+		cellFormatter.setStylePrimaryName(0, 0, "TableTitle");
 		entirePeriodTable.getRowFormatter().addStyleName(0, "tablesHeader");
 	}
 
@@ -158,7 +159,7 @@ public class ChartsView extends VerticalPanel implements
 		monthsStackPanel = new StackPanel();
 		monthsStackPanel.addStyleName("monthsStackPanel");
 		widgetWrapper.add(monthsStackPanel);
-		
+
 		monthsPanel.add(widgetWrapper);
 		monthsPanel.addCloseHandler(new CloseHandler<DisclosurePanel>() {
 			@Override
@@ -191,8 +192,8 @@ public class ChartsView extends VerticalPanel implements
 	}
 
 	@Override
-	public void populateEntirePeriodTable(String period,IsWidget widget) {
-		entirePeriodTable.setText(1, 0, period );
+	public void populateEntirePeriodTable(String period, IsWidget widget) {
+		entirePeriodTable.setText(1, 0, period);
 		entirePeriodTable.setWidget(2, 0, widget);
 		entirePeriodTable.getFlexCellFormatter().setStyleName(2, 0,
 				"mini-table-cell");
@@ -244,7 +245,7 @@ public class ChartsView extends VerticalPanel implements
 				table.addStyleName("chartTable");
 				table.getFlexCellFormatter().setStyleName(row, column,
 						"mini-table-cell");
-				column++;				
+				column++;
 			}
 			monthsStackPanel.add(table, year);
 		}

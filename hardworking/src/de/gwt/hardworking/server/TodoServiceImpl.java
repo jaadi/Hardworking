@@ -29,21 +29,19 @@ public class TodoServiceImpl extends RemoteServiceServlet implements
 			.getName());
 	private static final PersistenceManagerFactory PMF = JDOHelper
 			.getPersistenceManagerFactory("transactions-optional");
-	
+
 	@Override
 	public Todo addTodo(Todo todo) throws NotLoggedInException {
-		
-		checkLoggedIn();		
+
+		checkLoggedIn();
 		PersistenceManager pm = getPersistenceManager();
 		javax.jdo.Transaction tx = pm.currentTransaction();
-		
+
 		Todo stored = null;
 
 		try {
 			tx.begin();
 			stored = pm.makePersistent(todo);
-			//ObjectState state = JDOHelper.getObjectState(todo);
-			//LOG.log(Level.INFO, state.name());
 			tx.commit();
 
 		} catch (Exception e) {
@@ -55,12 +53,12 @@ public class TodoServiceImpl extends RemoteServiceServlet implements
 		} finally {
 			pm.close();
 		}
-		return stored;		
+		return stored;
 	}
 
 	@Override
 	public ArrayList<Todo> getTodos() throws NotLoggedInException {
-		
+
 		checkLoggedIn();
 		PersistenceManager pm = getPersistenceManager();
 		ArrayList<Todo> todos = new ArrayList<Todo>();
@@ -69,11 +67,11 @@ public class TodoServiceImpl extends RemoteServiceServlet implements
 		try {
 
 			tx.begin();
-			Extent<Todo> e = pm.getExtent(Todo.class);			
+			Extent<Todo> e = pm.getExtent(Todo.class);
 			Iterator<Todo> iter = e.iterator();
 			while (iter.hasNext()) {
-				Todo todo = (Todo) iter.next();				
-				todos.add(todo);				
+				Todo todo = (Todo) iter.next();
+				todos.add(todo);
 			}
 			tx.commit();
 		} catch (Exception e) {
@@ -83,48 +81,47 @@ public class TodoServiceImpl extends RemoteServiceServlet implements
 				tx.rollback();
 			}
 		} finally {
-			pm.close();		
-			}		
+			pm.close();
+		}
 		return todos;
 	}
-	
+
 	@Override
-	public void deleteTodo(long id) throws NotLoggedInException {		
+	public void deleteTodo(long id) throws NotLoggedInException {
 		checkLoggedIn();
-		PersistenceManager pm = getPersistenceManager();	
-		
+		PersistenceManager pm = getPersistenceManager();
 		try {
-			
-			Query q = pm.newQuery(Todo.class);			
+			Query q = pm.newQuery(Todo.class);
 			@SuppressWarnings("unchecked")
 			List<Todo> todos = (List<Todo>) q.execute();
-			for (Todo todo : todos) {				
+			for (Todo todo : todos) {
 				if (todo.getId().equals(id)) {
 					pm.deletePersistent(todo);
 				}
 			}
-			
+
 		} catch (Exception exception) {
 			LOG.log(Level.SEVERE, "exception in deleteTask");
 			exception.printStackTrace();
 
 		} finally {
 			pm.close();
-		}		
+		}
 	}
-	
+
 	@Override
-	public void deferTodo(long id, String newDeadLine) throws NotLoggedInException {
+	public void deferTodo(long id, String newDeadLine)
+			throws NotLoggedInException {
 		checkLoggedIn();
 		PersistenceManager pm = getPersistenceManager();
 		try {
-			Query q = pm.newQuery(Todo.class);			
+			Query q = pm.newQuery(Todo.class);
 			@SuppressWarnings("unchecked")
 			List<Todo> todos = (List<Todo>) q.execute();
 			for (Todo todo : todos) {
 				if (todo.getId().equals(id)) {
 					todo.setDeadLine(newDeadLine);
-					todo.setDefered(todo.getDefered()+1);
+					todo.setDefered(todo.getDefered() + 1);
 				}
 			}
 
@@ -136,26 +133,20 @@ public class TodoServiceImpl extends RemoteServiceServlet implements
 			pm.close();
 		}
 
-		
 	}
-	
+
 	private void checkLoggedIn() throws NotLoggedInException {
-		if (getUser() == null) {			
+		if (getUser() == null) {
 			throw new NotLoggedInException("Not logged in.");
 		}
 	}
-	
+
 	private User getUser() {
 		UserService userService = UserServiceFactory.getUserService();
 		return userService.getCurrentUser();
 	}
-	
+
 	private PersistenceManager getPersistenceManager() {
 		return PMF.getPersistenceManager();
 	}
-
-	
-
-	
-
 }

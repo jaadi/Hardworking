@@ -293,6 +293,7 @@ public class TodosView extends VerticalPanel implements TodosPresenter.Display {
 
 	@Override
 	public void resetInputForm() {
+		
 		suggestionBox.setText("");
 		deadLineBox.setValue(null);
 		taskDescriptionArea.setText("");

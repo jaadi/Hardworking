@@ -9,7 +9,7 @@ import de.gwt.hardworking.client.NotLoggedInException;
 
 @RemoteServiceRelativePath("colorAssociation")
 public interface ColorService extends RemoteService {
-	
-	public HashMap<String, String> getAssociationsMap() throws NotLoggedInException;
 
+	public HashMap<String, String> getAssociationsMap()
+			throws NotLoggedInException;
 }

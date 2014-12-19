@@ -10,7 +10,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Todo implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@PrimaryKey
@@ -29,11 +29,12 @@ public class Todo implements Serializable {
 	@Persistent
 	private String creator;
 
-	public Todo() {}
+	public Todo() {
+	}
 
-	public Todo(String name, String comment, String entryDate,
-			String deadLine, int defered, String creator) {		
-		
+	public Todo(String name, String comment, String entryDate, String deadLine,
+			int defered, String creator) {
+
 		this.name = name;
 		this.comment = comment;
 		this.entryDate = entryDate;

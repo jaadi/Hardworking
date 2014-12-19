@@ -10,30 +10,32 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class TaskItem implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
+
 	@Persistent
 	private String itemText;
-	
-	public TaskItem(){}
-	
-	public TaskItem(String text){		
+
+	public TaskItem() {
+	}
+
+	public TaskItem(String text) {
 		this.itemText = text;
 	}
-	
+
 	public String getItemText() {
 		return itemText;
 	}
+
 	public void setItemText(String itemText) {
 		this.itemText = itemText;
 	}
-	
-	public long getId(){
+
+	public long getId() {
 		return id;
 	}
-
 }

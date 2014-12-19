@@ -14,19 +14,18 @@ public class LoginPresenter {
 		Anchor getSignInLink();
 	}
 
-	public LoginPresenter( AppController appController) {
+	public LoginPresenter(AppController appController) {
 		this.appController = appController;
 		view = new LoginView();
-		
 	}
 
 	public void bind() {
-		view.getSignInLink().setHref(appController.getLoginInfo().getLoginUrl());
+		view.getSignInLink()
+				.setHref(appController.getLoginInfo().getLoginUrl());
 	}
 
 	public Display getView() {
 		return view;
 	}
-	
-	
+
 }

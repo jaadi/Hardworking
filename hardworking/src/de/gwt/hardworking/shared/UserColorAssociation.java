@@ -12,7 +12,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class UserColorAssociation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
@@ -20,9 +20,10 @@ public class UserColorAssociation implements Serializable {
 	private String user;
 	@Persistent
 	private String color;
-	
-	public UserColorAssociation() {}
-	
+
+	public UserColorAssociation() {
+	}
+
 	public UserColorAssociation(String user, String color) {
 		this();
 		this.user = user;
@@ -43,7 +44,6 @@ public class UserColorAssociation implements Serializable {
 
 	public void setColor(String color) {
 		this.color = color;
-	}	
-	
+	}
 
 }

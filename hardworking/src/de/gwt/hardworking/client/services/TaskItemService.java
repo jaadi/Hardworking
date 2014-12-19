@@ -9,9 +9,10 @@ import de.gwt.hardworking.client.NotLoggedInException;
 import de.gwt.hardworking.shared.TaskItem;
 
 @RemoteServiceRelativePath("taskItem")
-public interface TaskItemService extends RemoteService{
-	
-	public ArrayList<TaskItem> getTaskItems() 			throws NotLoggedInException;	
-	public TaskItem addTaskItem(TaskItem taskItem)				 throws NotLoggedInException;
+public interface TaskItemService extends RemoteService {
+
+	public ArrayList<TaskItem> getTaskItems() throws NotLoggedInException;
+
+	public TaskItem addTaskItem(TaskItem taskItem) throws NotLoggedInException;
 
 }

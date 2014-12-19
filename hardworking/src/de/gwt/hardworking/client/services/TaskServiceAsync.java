@@ -6,7 +6,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.gwt.hardworking.shared.Task;
 
-public interface TaskServiceAsync {	
+public interface TaskServiceAsync {
 
 	void deleteTask(long id, AsyncCallback<Void> callback);
 
@@ -15,7 +15,5 @@ public interface TaskServiceAsync {
 	void setTaskConfirmed(long id, AsyncCallback<Void> callback);
 
 	void addTask(Task notConfirmedTask, AsyncCallback<Task> callback);
-
-	
 
 }
