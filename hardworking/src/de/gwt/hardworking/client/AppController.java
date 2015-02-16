@@ -22,6 +22,7 @@ import de.gwt.hardworking.shared.Task;
 
 public class AppController {
 
+	//just testing github connection
 	private String currentUser = null;
 	private LoginInfo loginInfo = null;
 	private LoginPresenter loginPresenter = null;
